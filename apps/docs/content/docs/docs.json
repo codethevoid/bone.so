@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "group": "Overview",
+      "pages": [
+        {
+          "title": "Introduction",
+          "href": "/docs/overview/introduction"
+        },
+        {
+          "title": "Installation",
+          "href": "/docs/overview/installation"
+        }
+      ]
+    },
+    {
+      "group": "Concepts",
+      "pages": [
+        {
+          "title": "Theming",
+          "href": "/docs/concepts/theming"
+        },
+        {
+          "title": "Dark mode",
+          "href": "/docs/concepts/dark-mode"
+        },
+        {
+          "title": "Colors",
+          "href": "/docs/concepts/colors"
+        }
+      ]
+    },
+    {
+      "group": "Components",
+      "pages": [
+        {
+          "title": "Accordion",
+          "href": "/docs/components/accordion"
+        },
+        {
+          "title": "Button",
+          "href": "/docs/components/button"
+        }
+      ]
+    },
+    {
+      "group": "Utilities",
+      "pages": [
+        {
+          "title": "Fuse",
+          "href": "/docs/utilities/fuse"
+        }
+      ]
+    }
+  ]
+}
