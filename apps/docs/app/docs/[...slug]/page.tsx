@@ -2,6 +2,7 @@ import { OnThisPage } from "../../../components/on-this-page";
 import fs from "fs";
 import path from "path";
 import { type Metadata } from "next";
+import { Footer } from "../../../components/footer";
 
 export const dynamicParams = false;
 
@@ -113,16 +114,21 @@ const DocumentationPage = async ({ params }: { params: Params }) => {
   );
 
   return (
-    <div className="mx-auto flex max-w-screen-lg min-w-0 gap-10 p-6 max-xl:max-w-screen-md">
-      <article data-mdx-container className="min-w-0">
-        <div>
-          <h1 id="title" className="mb-2 text-3xl font-semibold">
-            {metadata.title}
-          </h1>
-          <p className="text-soft-foreground">{metadata.description}</p>
-        </div>
-        <Post />
-      </article>
+    <div className="mx-auto flex w-full max-w-screen-lg min-w-0 gap-10 p-6 pb-0 max-xl:max-w-screen-md">
+      <div className="w-full min-w-0">
+        <article data-mdx-container className="min-h-[calc(100dvh-193px)]">
+          <div>
+            <h1 id="title" className="mb-2 text-2xl font-semibold md:text-3xl">
+              {metadata.title}
+            </h1>
+            <p className="text-soft-foreground max-md:text-sm">
+              {metadata.description}
+            </p>
+          </div>
+          <Post />
+        </article>
+        <Footer />
+      </div>
       <aside className="min-w-52 max-xl:hidden">
         <OnThisPage headings={headings} />
       </aside>

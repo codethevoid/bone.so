@@ -2,28 +2,79 @@ import { Showcase } from "../../../components/showcase";
 import { Button } from "@bonekit/ui/button";
 import { CodeBlock } from "../../../components/code-block";
 import { CodeSnippet } from "../../../components/code-snippet";
-import NextLink from "next/link";
 import { Table } from "../../../components/table";
+import { Terminal } from "../../../components/terminal";
+import { Tab, TabIndicator, TabPanel, Tabs, TabsList } from "../../../components/tabs";
+import { custom, danger, example, ghost, link, manual, outline, primary, soft } from "../../code-examples/button";
 
 export const metadata = {
-  title: 'Button',
-  description: "Displays a button than can be clicked."
-}
-
+  title: "Button",
+  description: "Displays a button than can be clicked.",
+};
 
 <Showcase>
   <Button>Click me</Button>
 </Showcase>
 
-<CodeBlock filename={'btn-example.tsx'} code={`import { Button } from "@bonekit/ui/button";
+<CodeBlock filename={"btn-example.tsx"} code={example} />
 
-  export const ButtonExample = () => {
-    return <Button>Click me</Button>;
-  };`} />
+## Installation
+
+<Tabs defaultValue="global">
+  <TabsList className="relative">
+    <Tab value="global">Global</Tab>
+    <Tab value="manual">Manual</Tab>
+    <TabIndicator />
+  </TabsList>
+  <TabPanel value="global">
+    <Terminal
+      commands={[
+        { label: "pnpm", command: "pnpm add @bonekit/ui" },
+        { label: "npm", command: "npm install @bonekit/ui" },
+        { label: "yarn", command: "yarn add @bonekit/ui" },
+        { label: "bun", command: "bun add @bonekit/ui" },
+      ]}
+    />
+  </TabPanel>
+  <TabPanel value="manual">
+    <div className="mt-4">
+      Install the following dependencies:
+      <Terminal className="mb-12"
+                commands={[
+                  {
+                    label: "pnpm",
+                    command: "pnpm add @radix-ui/react-slot class-variance-authority",
+                  },
+                  {
+                    label: "npm",
+                    command: "npm install radix-ui/react-slot class-variance-authority",
+                  },
+                  {
+                    label: "yarn",
+                    command: "yarn add @radix-ui/react-slot class-variance-authority",
+                  },
+                  {
+                    label: "bun",
+                    command: "bun add @radix-ui/react-slot class-variance-authority",
+                  },
+                ]}
+      />
+
+      Copy and paste the following code into your button component:
+
+      <CodeBlock expandable className="mt-6" withShowcase={false} filename="button.tsx"
+                 code={manual} />
+    </div>
+
+  </TabPanel>
+</Tabs>
 
 ## Usage
 
-<CodeSnippet filename={"index.tsx"} code='import { Button } from "@bonekit/ui/button";' />
+<CodeSnippet
+  filename={"index.tsx"}
+  code='import { Button } from "@bonekit/ui/button";'
+/>
 <CodeSnippet filename="index.tsx" code="<Button>Click me</Button>" />
 
 ## Examples
@@ -38,81 +89,59 @@ Primary buttons are the default style and are used for main actions.
   <Button>Primary</Button>
 </Showcase>
 
-<CodeBlock filename={'primary-btn.tsx'} code={`import { Button } from "@bonekit/ui/button";
-
-  export const PrimaryBtn = () => {
-    return <Button>Primary</Button>;
-  };`} />
+<CodeBlock filename={"primary-btn.tsx"} code={primary} />
 
 ### Soft
+
 Soft buttons have a subtle background and are used for less prominent actions.
 
 <Showcase>
   <Button variant="soft">Soft</Button>
 </Showcase>
 
-<CodeBlock filename={'soft-btn.tsx'} code={`import { Button } from "@bonekit/ui/button";
-
-  export const SoftBtn = () => {
-    return <Button variant="soft">Primary</Button>;
-  };`} />
+<CodeBlock filename={"soft-btn.tsx"} code={soft} />
 
 ### Outline
+
 Outline buttons have a border and are used for secondary actions.
 
 <Showcase>
   <Button variant="outline">Outline</Button>
 </Showcase>
 
-<CodeBlock filename={'outline-btn.tsx'} code={`import { Button } from "@bonekit/ui/button";
-
-  export const OutlineBtn = () => {
-    return <Button variant="outline">Outline</Button>;
-  };`} />
+<CodeBlock filename={"outline-btn.tsx"} code={outline} />
 
 ### Ghost
+
 Ghost buttons have no background or border and are used for minimalistic designs.
 
 <Showcase>
   <Button variant="ghost">Ghost</Button>
 </Showcase>
 
-<CodeBlock filename={'ghost-btn.tsx'} code={`import { Button } from "@bonekit/ui/button";
-
-  export const GhostBtn = () => {
-    return <Button variant="ghost">Ghost</Button>;
-  };`} />
+<CodeBlock filename={"ghost-btn.tsx"} code={ghost} />
 
 ### Danger
+
 Danger buttons are used for destructive actions and have a red color scheme.
 
 <Showcase>
   <Button variant="danger">Danger</Button>
 </Showcase>
 
-<CodeBlock filename={'danger-btn.tsx'} code={`import { Button } from "@bonekit/ui/button";
-
-  export const DangerBtn = () => {
-    return <Button variant="danger">Danger</Button>;
-  };`} />
+<CodeBlock filename={"danger-btn.tsx"} code={danger} />
 
 ### Custom
+
 You can apply custom styles using Tailwind CSS classes.
 
 <Showcase>
-  <Button
-    className="bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20 hover:scale-[103%] ease focus:ring-0 active:scale-[98%]">Custom</Button>
+  <Button className="border-0 bg-gradient-to-tr from-blue-400 to-blue-600 text-white shadow-xl shadow-blue-600/20 hover:scale-[103%] hover:opacity-100 focus:ring-0 active:scale-[98%] dark:shadow-blue-500/20">
+    <span>Custom</span>
+  </Button>
 </Showcase>
 
-<CodeBlock filename="custom-btn.tsx" code={`import { Button } from "@bonekit/ui/button";
-
-  export const CustomBtn = () => {
-    return (
-      <Button className="bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20 hover:scale-[103%] ease focus:ring-0 active:scale-[98%]">
-        Custom
-      </Button>
-    );
-  };`} />
+<CodeBlock filename="custom-btn.tsx" code={custom} />
 
 ### Link
 
@@ -120,27 +149,28 @@ You can make any element look like the button component by using the `passThroug
 
 <Showcase>
   <Button passThrough>
-    <NextLink href="https://github.com/codethevoid/bone.so" target="_blank" rel="noopener noreferrer">
+    <a
+      href="https://github.com/codethevoid/bone.so"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <span>View Github</span>
-    </NextLink>
+    </a>
   </Button>
 </Showcase>
 
-<CodeBlock filename="link-btn.tsx" code={`import { Button } from "@bonekit/ui/button";
-import NextLink from "next/link";
+<CodeBlock filename="link-btn.tsx" code={link} />
 
-  export const LinkBtn = () => {
-    return (
-      <Button passThrough>
-        <NextLink href="https://github.com/codethevoid/bone.so" target="_blank" rel="noopener noreferrer">
-          View Github
-        </NextLink>
-      </Button>
-    );
-  };`} />
+## Props
 
-## Button Props
+The Button component accepts the following props:
 
-boris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-<Table></Table>
+<Table
+  head={["Prop", "Type", "Default"]}
+  rows={[
+    ["passThrough", "boolean", "false"],
+    ["variant", "primary | soft | outline | ghost | danger", "primary"],
+    ["size", "tiny | small | default | large", "default"],
+    ["className", "string", "undefined"],
+  ]}
+/>

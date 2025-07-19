@@ -8,10 +8,12 @@ import { CopyButton } from "./copy-button";
 export const CodeBlock = ({
   filename,
   code,
+  className,
   language = "tsx",
   expandable = false,
   withShowcase = true,
 }: {
+  className?: string;
   filename?: string;
   code: string;
   language?: string;
@@ -25,6 +27,7 @@ export const CodeBlock = ({
         className={fuse(
           "relative overflow-hidden border",
           withShowcase ? "rounded-b-lg border-t-0" : "rounded-lg",
+          className,
         )}
       >
         {filename && (
