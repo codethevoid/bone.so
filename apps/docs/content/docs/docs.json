@@ -38,6 +38,10 @@
           "href": "/docs/components/accordion"
         },
         {
+          "title": "Alert Dialog",
+          "href": "/docs/components/alert-dialog"
+        },
+        {
           "title": "Button",
           "href": "/docs/components/button"
         }

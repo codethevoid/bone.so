@@ -1,55 +1,147 @@
-import {Showcase} from "../../../components/showcase";
-import {Accordion, AccordionItem, AccordionPanel, AccordionTrigger} from "@bonekit/ui/accordion";
-import {CodeBlock} from "../../../components/code-block";
-import {Button} from "@bonekit/ui/button";
-import {ArrowUpRight} from "lucide-react";
+import { Showcase } from "../../../components/showcase";
+import { Accordion, AccordionItem, AccordionPanel, AccordionTrigger } from "@bonekit/ui/accordion";
+import { CodeBlock } from "../../../components/code-block";
+import { example, minimal, shaped, usage } from "../../code-examples/accordion";
+import { CodeSnippet } from "../../../components/code-snippet";
+import { Table } from "../../../components/table";
+import { Button } from "@bonekit/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata = {
-    title: 'Accordion',
-    description: 'A set of collapsible panels with headings.',
+  title: 'Accordion',
+  description: 'A set of collapsible panels with headings.',
 }
 
-<Button size="tiny" variant="soft" className="mt-4">Api reference<ArrowUpRight className="size-3.5"/></Button>
+<Button size="tiny" variant="soft" className="mt-4" passThrough>
+  <a href="https://base-ui.com/react/components/accordion#api-reference" target="_blank" rel="noreferrer noopener">
+    <span>Api reference</span><ArrowUpRight className="size-3.5" />
+  </a>
+</Button>
 
 <Showcase>
-    <Accordion className="w-full max-w-96" openMultiple={false}>
-        <AccordionItem>
-            <AccordionTrigger>Minimal by default</AccordionTrigger>
-            <AccordionPanel>
-                <div className="-mt-2">
-                    Bone UI ships with sleek, accessible components that are lightweight and production ready but built to be styled and extended to match your design system.
-                </div>
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionTrigger>Powered by Base UI</AccordionTrigger>
-            <AccordionPanel>
-                <div className="-mt-2">
-                    Built on top of Base UI (from the creators of MUI and Radix), Bone UI layers modern design on top of a headless foundation.
-                </div>
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionTrigger>What is Bone UI please tell me so?</AccordionTrigger>
-            <AccordionPanel>
-                <div className="-mt-2">
-                    A set of collapsible panels with headings.
-                </div>
-            </AccordionPanel>
-        </AccordionItem>
-    </Accordion>
+  <Accordion className="w-full max-w-96" openMultiple={false}>
+    <AccordionItem>
+      <AccordionTrigger>Minimal by default</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Bone UI ships with sleek, accessible components that are lightweight and production ready but built to be
+          styled and extended to match your design system.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Powered by Base UI</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built on top of Base UI (from the creators of MUI and Radix), Bone UI layers modern design on top of a
+          headless foundation.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Accessible out of the box</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built with best practices to ensure usability for everyone, right from the start.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+  </Accordion>
 </Showcase>
 
-<CodeBlock filename="accordion-example.tsx" expandable
-           code={`import { Accordion, AccordionItem, AccordionPanel, AccordionTrigger } from '@bonekit/ui/accordion';
+<CodeBlock filename="index.tsx" expandable code={example} />
 
-const AccordionExample = () => {
-    return (
-      <Accordion className="w-full max-w-96" openMultiple={false}>
-        <AccordionItem>
-          <AccordionTrigger>What is Bone UI?</AccordionTrigger>
-        </AccordionItem>
-      </Accordion>
-    );
-}
-`}/>
+## Usage
+
+<CodeSnippet filename="index.tsx"
+             code='import { Accordion, AccordionItem, AccordionPanel, AccordionTrigger } from "@bonekit/ui/accordion";' />
+
+<CodeSnippet filename="index.tsx" code={usage} />
+
+## Examples
+
+The following variants are available for the Accordion component:
+
+### Minimal
+
+This is the default variant
+
+<Showcase>
+  <Accordion className="w-full max-w-96" openMultiple={false}>
+    <AccordionItem>
+      <AccordionTrigger>Minimal by default</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Bone UI ships with sleek, accessible components that are lightweight and production ready but built to be
+          styled and extended to match your design system.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Powered by Base UI</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built on top of Base UI (from the creators of MUI and Radix), Bone UI layers modern design on top of a
+          headless foundation.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Accessible out of the box</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built with best practices to ensure usability for everyone, right from the start.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+  </Accordion>
+</Showcase>
+
+<CodeBlock filename="minimal.tsx" expandable code={minimal} />
+
+### Shaped
+
+Shaped accordions have rounded corners and a subtle background.
+
+<Showcase>
+  <Accordion variant="shaped" className="w-full max-w-96" openMultiple={false}>
+    <AccordionItem>
+      <AccordionTrigger>Minimal by default</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Bone UI ships with sleek, accessible components that are lightweight and production ready but built to be
+          styled and extended to match your design system.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Powered by Base UI</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built on top of Base UI (from the creators of MUI and Radix), Bone UI layers modern design on top of a
+          headless foundation.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+    <AccordionItem>
+      <AccordionTrigger>Accessible out of the box</AccordionTrigger>
+      <AccordionPanel>
+        <div className="-mt-2">
+          Built with best practices to ensure usability for everyone, right from the start.
+        </div>
+      </AccordionPanel>
+    </AccordionItem>
+  </Accordion>
+</Showcase>
+
+<CodeBlock filename="shaped.tsx" expandable code={shaped} />
+
+## Props
+
+The Accordion component accepts the following props in addition to Base UI's props:
+
+<Table head={["Prop", "Type", "Default"]} rows={[
+  ["variant", "minimal | shaped", "minimal"],
+]} />
+
+

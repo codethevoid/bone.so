@@ -3,7 +3,6 @@
 import { Accordion as AccordionBase } from "@base-ui-components/react";
 import { ComponentProps, createContext, ReactNode, useContext } from "react";
 import { fuse } from "./utils";
-import { ChevronLeft } from "lucide-react";
 
 type AccordionVariant = "minimal" | "shaped";
 
@@ -67,7 +66,7 @@ const AccordionTrigger = ({
         )}
       >
         {children}
-        <ChevronLeft className="size-4 text-soft-foreground shrink-0 group-data-[panel-open]:-rotate-90 transition-transform ease" />
+        <ChevronLeft />
       </AccordionBase.Trigger>
     </AccordionBase.Header>
   );
@@ -97,6 +96,23 @@ const AccordionPanel = ({
         {children}
       </div>
     </AccordionBase.Panel>
+  );
+};
+
+const ChevronLeft = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-4 text-soft-foreground shrink-0 group-data-[panel-open]:-rotate-90 transition-transform ease"
+    >
+      <path d="m15 18-6-6 6-6" />
+    </svg>
   );
 };
 
